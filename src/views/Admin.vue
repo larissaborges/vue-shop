@@ -1,16 +1,16 @@
 <template>
   <div class="home">
- <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
+    <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <!-- sidebar-brand  -->
                 <div class="sidebar-item sidebar-brand">
-                    <a href="#">pro sidebar</a>
+                    <a href="#">Vue Shop</a>
                 </div>
                 <!-- sidebar-header  -->
                 <div class="sidebar-item sidebar-header d-flex flex-nowrap">
                     <div class="user-pic">
-                        <img class="img-responsive img-rounded" src="img/user.jpg" alt="User picture">
+                        <img class="img-responsive img-rounded" src="img/user.png" alt="User picture">
                     </div>
                     <div class="user-info">
                         <span class="user-name">Jhon
@@ -40,50 +40,30 @@
                 <div class=" sidebar-item sidebar-menu">
                     <ul>
                         <li class="header-menu">
-                            <span>General</span>
-                        </li>
-                        <li class="sidebar-dropdown">
-                            <a href="#">
-                                <i class="fa fa-tachometer-alt"></i>
-                                <span class="menu-text">Dashboard</span>
-                                <span class="badge badge-pill badge-warning">New</span>
-                            </a>
-                            <div class="sidebar-submenu">
-                                <ul>
-                                    <li>
-                                        <a href="#">Dashboard 1
-                                            <span class="badge badge-pill badge-success">Pro</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dashboard 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dashboard 3</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="header-menu">
-                            <span>Extra</span>
+                            <span>Menu</span>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fa fa-book"></i>
-                                <span class="menu-text">Documentation</span>
-                                <span class="badge badge-pill badge-primary">Beta</span>
+                            <router-link to="/admin/overview">
+                                <i class="fa fa-chart-line"></i>
+                                <span>Overview</span>
+                            </router-link>
+                        </li>
+                        <li>
+                            <router-link to="/admin/products">
+                                <i class="fab fa-amazon"></i>
+                                <span>Products</span>
+                            </router-link>
+                        </li>
+                        <li>
+                            <a to="">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Orders</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fa fa-calendar"></i>
-                                <span class="menu-text">Calendar</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-folder"></i>
-                                <span class="menu-text">Examples</span>
+                            <a to="">
+                                 <i class="fa fa-power-off"></i>
+                                <span>Logout</span>
                             </a>
                         </li>
                     </ul>
@@ -92,38 +72,12 @@
             </div>
         </nav>
         <!-- page-content  -->
-        <main class="page-content pt-2">
-            <div id="overlay" class="overlay"></div>
-            <div class="container-fluid p-5">
-                <div class="row">
-                    <div class="form-group col-md-12">
-                        <h2>Pro Sidebar</h2>
-                        <p>This is a responsive sidebar template with dropdown menu based on bootstrap framework.</p>
-
-                    </div>
-                    <div class="form-group col-md-12">
-                        <iframe
-                            src="https://ghbtns.com/github-btn.html?user=azouaoui-med&repo=pro-sidebar-template&type=star&count=true&size=small"
-                            frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
-                        <iframe
-                            src="https://ghbtns.com/github-btn.html?user=azouaoui-med&repo=pro-sidebar-template&type=fork&count=true&size=small"
-                            frameborder="0" scrolling="0" width="100px" height="30px"></iframe>
-                    </div>
-
-                    <div class="form-group col-md-12">
-                        <a id="toggle-sidebar" class="btn btn-secondary rounded-0" href="#">
-                            <span>Toggle Sidebar</span>
-                        </a>
-                        <a id="pin-sidebar" class="btn btn-outline-secondary rounded-0" href="#">
-                            <span>Pin Sidebar</span>
-                        </a>
-
-                    </div>
-                </div>
-            </div>
+        <main class="page-content">
+           <router-view/>
         </main>
         <!-- page-content" -->
-    </div>  </div>
+    </div>  
+  </div>
 </template>
 
 <script>
