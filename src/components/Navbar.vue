@@ -12,6 +12,9 @@
                 <router-link to="/" class="nav-link">Home</router-link>
               </li>
               <li class="nav-item">
+              <router-link to="/products" class="nav-link" href="#">Products</router-link>
+              </li>
+              <li class="nav-item">
                 <router-link to="/about" class="nav-link" href="#">About</router-link>
               </li>
             </ul>
@@ -38,8 +41,9 @@ export default {
 @media (min-width: 992px) { 
     
     .navbar.custom-nav{
-      top:16px;
-      background-color: transparent !important;
+      padding-top:16px;
+      padding-bottom:16px;
+      background-color: #fff !important;
     }
    }
 </style>
