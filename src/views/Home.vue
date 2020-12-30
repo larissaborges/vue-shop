@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Navbar></Navbar>
     <Hero/>
     <Products/>
     <div class="container h-100">
@@ -22,9 +23,10 @@
 <script>
 import Hero from '../components/Hero'
 import Products from '../sections/Products'
+import Navbar from '../components/Navbar'
 
 export default {
   name: 'Home',
-  components: { Hero, Products }
+  components: { Hero, Products, Navbar }
 }
 </script>
