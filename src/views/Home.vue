@@ -17,6 +17,7 @@
           </div>
         </div>
       </div>
+    <login></login>
   </div>
 </template>
 
@@ -24,9 +25,10 @@
 import Hero from '../components/Hero'
 import Products from '../sections/Products'
 import Navbar from '../components/Navbar'
+import Login from '../components/Login'
 
 export default {
   name: 'Home',
-  components: { Hero, Products, Navbar }
+  components: { Hero, Products, Navbar, Login }
 }
 </script>
