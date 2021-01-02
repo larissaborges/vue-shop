@@ -61,7 +61,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <a to="">
+                            <a href="#" @click="logout()">
                                  <i class="fa fa-power-off"></i>
                                 <span>Logout</span>
                             </a>
@@ -81,10 +81,22 @@
 </template>
 
 <script>
-// import Hero from '../components/Hero'
+
+import {fb} from '../firebase';
 
 export default {
   name: 'Home',
-  components: {  }
+  components: {},
+  methods: {
+      logout() {
+          fb.auth().signOut()
+          .then(() => {
+              this.$router.replace('/');
+          })
+          .catch((err) =>{
+              console.log(err);
+          })
+      }
+  }
 }
 </script>
