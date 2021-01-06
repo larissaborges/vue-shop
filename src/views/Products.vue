@@ -32,7 +32,20 @@
                   </thead>
 
                   <tbody>
+                    <tr v-for="product in products" :key="product.id">
+                        <td>
+                          {{product.name}}
+                        </td>
+                         <td>
+                          {{product.price}}
+                        </td>
 
+                        <td>
+
+                          <button class="btn btn-primary" @click="editProduct(product)">Edit</button>
+                          <button class="btn btn-danger" @click="deleteProduct(product)">Delete</button>
+                        </td>
+                      </tr>
                   </tbody>
                 </table>
             </div>
@@ -84,7 +97,8 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button @click="addProduct()" type="button" class="btn btn-primary">Save changes</button>
+              <!-- <button @click="addProduct()" type="button" class="btn btn-primary" v-if="modal == 'new'">Save changes</button>
+              <button @click="updateProduct()" type="button" class="btn btn-primary" v-if="modal == 'edit'">Apply changes</button>             -->
             </div>
           </div>
         </div>
@@ -94,8 +108,9 @@
 </template>
 
 <script>
-import { db} from '../firebase';
+import {db} from '../firebase';
 import $ from 'jquery'
+import Swal from 'sweetalert2'
   
 export default {
   name: "Products",
@@ -109,7 +124,6 @@ export default {
         name: null,
         price: null,
         description:null,
-        price:null,
         tag:null,
         image:null
       },
@@ -129,17 +143,31 @@ export default {
     updateProduct(){
       
     },
-    editProduct(product){
+    // editProduct(product){
         
-    },
+    // // },
     deleteProduct(doc){
-         
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+              this.$firestore.products.doc(doc['.key']).delete()
+          }
+        })
     },
     readData(){
          
     },
     addProduct(){
       this.$firestore.products.add(this.product);
+      $('#product').modal('hide');
+
     },
   },
   created() {

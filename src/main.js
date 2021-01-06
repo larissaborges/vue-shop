@@ -4,11 +4,12 @@ import router from './router'
 import jQuery from 'jquery'
 import {fb} from './firebase'
 import VueFirestore from 'vue-firestore'
+import Swal from 'sweetalert2';
+
 require('firebase/firestore')
-
-
 Vue.use(VueFirestore)
 
+window.Swal = Swal;
 
 window.$ = window.jQuery = jQuery
 
